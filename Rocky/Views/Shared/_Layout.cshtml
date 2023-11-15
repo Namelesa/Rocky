@@ -23,7 +23,11 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+
+                    <partial name="_LoginPartial"/>
+
+
                     <ul class="navbar-nav flex-grow-1">
                         
                         <li>
@@ -39,6 +43,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="ApplicationType" asp-action="Index">ApplicationType</a>
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Product</a>
                                 <div class="dropdown-divider"></div>
+                                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Create Admin User</a>
                             </div>
                         </li>
                         <li>
