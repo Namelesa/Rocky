@@ -1,4 +1,5 @@
-﻿@model Rocky.Models.ViewModels.ProductVM
+﻿@model Rocky_Models.ViewModels.ProductVM
+@using Rocky_Utility
 
 @{
     var title = "Create Product";
@@ -116,7 +117,7 @@
             <div class="col-4">
                 @if (Model.Product.Id != 0)
                 {
-                    <img src="@WC.ImagePath@Model.Product.Image" width="100%" style="border-radius:5px; border:1px solid #bbb"/>
+                    <img src="@WC.ImagePath@Model.Product.Image" width="100%" style="border-radius:5px; border:1px solid #bbb" />
                 }
             </div>
         </div>
@@ -127,24 +128,23 @@
 
 @section Scripts{
 
-    @{
-        <partial name="_ValidationScriptsPartial" />}
-    <script>
-        $(document).ready(function () {
-            $('.summernote').summernote({
-                height: 250
+        <partial name="_ValidationScriptsPartial" />
+        <script>
+            $(document).ready(function () {
+                $('.summernote').summernote({
+                    height: 250
+                });
             });
-        });
-        function validateInput() {
-            if (document.getElementById("uploadBox").value == "") {
-                Swal.fire(
-                    'Error!',
-                    'Please upload an Image!',
-                    'error'
-                )
-                return false;
+            function validateInput() {
+                if (document.getElementById("uploadBox").value == "") {
+                    Swal.fire(
+                        'Error!',
+                        'Please upload an Image!',
+                        'error'
+                    )
+                    return false;
+                }
+                return true;
             }
-            return true;
-        }
-    </script>
+        </script>
 }

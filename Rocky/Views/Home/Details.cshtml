@@ -1,7 +1,9 @@
-﻿@model Rocky.Models.ViewModels.DetailsVM
+﻿@model Rocky_Models.ViewModels.DetailsVM
+@using Rocky_Utility
+
 <div class="">
     <form method="post">
-        <input asp-for="@Model.Product.Id" hidden/>
+        <input asp-for="@Model.Product.Id" hidden />
         <div class="container backgroundWhite pt-4">
             <div class="card" style="border:1px solid #000000; ">
                 <div class="card-header bg-dark text-light ml-0 row container" style="border-radius: 0px;">
