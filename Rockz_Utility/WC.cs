@@ -14,5 +14,8 @@ namespace Rocky_Utility
         public const string CustomerRole = "Customer";
 
         public const string emailAdmin = "pdo090318@gmail.com";
+
+        public const string CategoryName = "Category";
+        public const string ApplicationTypeName = "ApplicationType";
     }
 }

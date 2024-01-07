@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Rocky_Models\Rocky_Models.csproj" />
+    <ProjectReference Include="..\Rockz_Utility\Rockz_Utility.csproj" />
   </ItemGroup>
 
 </Project>
