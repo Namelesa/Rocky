@@ -141,11 +141,13 @@ namespace Rocky.Controllers
                     _prodRepo.Update(productVM.Product);
                 }
 
+                TempData[WC.Success] = "Action complited successfully";
                 _prodRepo.Save();
                 return RedirectToAction("Index");
             }
             productVM.CategorySelectList = _prodRepo.GetAllDropDownList(WC.CategoryName);
             productVM.AppicationTypeSelectList = _prodRepo.GetAllDropDownList(WC.ApplicationTypeName);
+            
             return View(productVM);
         }
 
@@ -191,6 +193,7 @@ namespace Rocky.Controllers
 
             _prodRepo.Remove(obj);
             _prodRepo.Save();
+            TempData[WC.Success] = "Prouct deleted successfully";
             return RedirectToAction("Index");
         }
     }
