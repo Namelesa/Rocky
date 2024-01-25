@@ -143,17 +143,17 @@ namespace Rocky.Controllers
             {
                 // create an order
 
-                var orderTotal = 0.0;
+                //var orderTotal = 0.0;
 
-                foreach (Product prod in ProductUserVM.ProductList)
-                {
-                    orderTotal += prod.Price * prod.TempSqft;
-                }
+                //foreach (Product prod in ProductUserVM.ProductList)
+                //{
+                //    orderTotal += prod.Price * prod.TempSqft;
+                //}
 
                 OrderHeader orderHeader = new OrderHeader()
                 {
                     CreatedByUserId = claim.Value,
-                    FinalOrderTotal = orderTotal,
+                    FinalOrderTotal = ProductUserVM.ProductList.Sum(x=>x.TempSqft * x.Price),
                     City = ProductUserVM.ApplicationUser.City,
                     StreetAddress = ProductUserVM.ApplicationUser.StreetAdress,
                     State = ProductUserVM.ApplicationUser.Region,
@@ -183,6 +183,8 @@ namespace Rocky.Controllers
             }
             else
             {
+                // create an inquiry
+
                 var PathToTemplate = _webHostEnvironment.WebRootPath + Path.DirectorySeparatorChar.ToString()
                 + "templates" + Path.DirectorySeparatorChar.ToString() + "Inquiry.html";
 
