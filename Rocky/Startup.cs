@@ -11,6 +11,7 @@ using Rocky_DataAccess;
 using Rocky_DataAccess.Repository;
 using Rocky_DataAccess.Repository.IRepository;
 using Rocky_Utility;
+using Rockz_Utility.BrainTree;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,9 @@ namespace Rocky
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
+
+            services.Configure<BrainTreeSettings>(Configuration.GetSection("BrainTree"));
+            services.AddSingleton<IBrainTreeGate, BrainTreeGate>();
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IApplicationTypeRepository, ApplicationTypeRepository>();

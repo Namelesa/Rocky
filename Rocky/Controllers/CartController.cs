@@ -7,6 +7,7 @@ using Rocky_DataAccess.Repository.IRepository;
 using Rocky_Models;
 using Rocky_Models.ViewModels;
 using Rocky_Utility;
+using Rockz_Utility.BrainTree;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -29,12 +30,14 @@ namespace Rocky.Controllers
         private readonly IInquaryDetailRepository _inqDRepo;
         private readonly IOrderDetailRepository _orderDRepo;
         private readonly IOrderHeaderRepository _orderHRepo;
+        private readonly IBrainTreeGate _brain;
 
         [BindProperty]
         public ProductUserVM ProductUserVM { get; set; }
 
         public CartController(ApplicationDbContext db, IWebHostEnvironment webHostEnvironment, IEmailSender emailSender, IProductRepository prodRepo, 
-            IApplicationUserRepository userRepo, IInquaryHeaderRepository inqHRepo, IInquaryDetailRepository inqDRepo, IOrderDetailRepository orderDRepo, IOrderHeaderRepository orderHRepo)
+            IApplicationUserRepository userRepo, IInquaryHeaderRepository inqHRepo, IInquaryDetailRepository inqDRepo, 
+            IOrderDetailRepository orderDRepo, IOrderHeaderRepository orderHRepo, IBrainTreeGate brain)
         {
             _prodRepo = prodRepo;
             _userRepo = userRepo;
@@ -42,6 +45,7 @@ namespace Rocky.Controllers
             _inqDRepo = inqDRepo;
             _orderHRepo = orderHRepo;
             _orderDRepo = orderDRepo;
+            _brain = brain;
             _webHostEnvironment = webHostEnvironment;
             _emailSender = emailSender;
         }
@@ -92,6 +96,11 @@ namespace Rocky.Controllers
                 {
                     applicationUser = new ApplicationUser();
                 }
+
+                var gateway = _brain.GetGateway();
+                var clienToken = gateway.ClientToken.Generate();
+                ViewBag.ClientToken = clienToken;
+
             }
             else
             {
@@ -240,10 +249,11 @@ namespace Rocky.Controllers
             return RedirectToAction(nameof(InquiryConfirmation));
         }
 
-        public IActionResult InquiryConfirmation()
+        public IActionResult InquiryConfirmation(int id = 0)
         {
+            OrderHeader orderHeader = _orderHRepo.FirstOrDefault(u=> u.Id == id);
             HttpContext.Session.Clear();
-            return View();
+            return View(orderHeader);
         }
 
 
