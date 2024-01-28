@@ -61,6 +61,7 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" asp-area="" asp-controller="Inquiry" asp-action="Index">Inquiry</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Order" asp-action="Index">Order</a>
                                 </div>
                             </li>
                         }
@@ -99,8 +100,14 @@
     <br />
 
     <footer class="border-top footer bg-dark">
-        <div class="container text-white-50">
+        <div class="container text-white-50 text-center">
             &copy; 2023 - Rocky
+            <a href="https://www.instagram.com/_2i_i7_/" target="_blank" style="display: inline-block; position: absolute; right: 0; top: 0;">
+                <img src="https://icon-library.com/images/instagram-icon-png-white/instagram-icon-png-white-1.jpg" alt="Instagram" style="max-width: 45px; height: auto;" />
+            </a>
+            <a href="https://t.me/pixophone" target="_blank" style="display: inline-block; position: absolute; right: 50px; top: 0;">
+                <img src="https://cdn-icons-png.flaticon.com/256/226/226253.png" alt="Telegram" style="max-width: 23px; height: auto;" />
+            </a>
         </div>
     </footer>
 
@@ -114,5 +121,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <ejs-scripts></ejs-scripts>
 </body>
 </html>
