@@ -29,7 +29,6 @@
                                     </div>
                                     <div class="col-9">
                                         <input asp-for="ApplicationUser.FullName" type="text" class="form-control" />
-                                        <span asp-validation-for="ApplicationUser.FullName" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="row my-1">
@@ -38,7 +37,6 @@
                                     </div>
                                     <div class="col-9">
                                         <input asp-for="ApplicationUser.PhoneNumber" required type="text" class="form-control" />
-                                        <span asp-validation-for="ApplicationUser.PhoneNumber" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="row my-1">
@@ -47,7 +45,6 @@
                                     </div>
                                     <div class="col-9">
                                         <input asp-for="ApplicationUser.Email" required type="text" class="form-control" />
-                                        <span asp-validation-for="ApplicationUser.Email" class="text-danger"></span>
                                     </div>
                                 </div>
 
@@ -160,11 +157,11 @@
                         <div class="col-12 col-md-5 offset-md-7">
                             @if (User.IsInRole(Rocky_Utility.WC.AdminRole))
                             {
-                                <button class="btn btn-success form-control" id="submit-button">Submit Order</button>
+                                <button class="btn btn-success form-control" onclick="return validateInput()" id="submit-button">Submit Order</button>
                             }
                             else
                             {
-                                <button type="submit" class="btn btn-primary form-control">Submit Inquiry</button>
+                                <button type="submit" onclick="return validateInput()" class="btn btn-primary form-control">Submit Inquiry</button>
                             }
                         </div>
                     </div>
