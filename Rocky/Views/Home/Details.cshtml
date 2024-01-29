@@ -31,8 +31,8 @@
                                         <p class="text-secondary">@Html.Raw(Model.Product.Description)</p>
                                     </div>
 
-                                    @if(User.IsInRole(WC.AdminRole))
-                                     {
+                                    @if (User.IsInRole(WC.AdminRole))
+                                    {
 
 
                                         <div class="col-12">
@@ -46,11 +46,11 @@
                                             }
                                             else
                                             {
-                                                <input asp-for="@Model.Product.TempSqft"  class="form-control" />
+                                                <input asp-for="@Model.Product.TempSqft" class="form-control" />
                                             }
                                             <span asp-validation-for="@Model.Product.TempSqft" class="text-danger"></span>
                                         </div>
-                                     }
+                                    }
 
                                 </div>
                             </div>
@@ -78,3 +78,7 @@
         </div>
     </form>
 </div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
