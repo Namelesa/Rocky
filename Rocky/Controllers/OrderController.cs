@@ -81,7 +81,7 @@ namespace Rocky.Controllers
             OrderHeader orderHeader = _orderHRepo.FirstOrDefault(u => u.Id == OrderVM.OrderHeader.Id);
             orderHeader.OrderStatus = WC.StatusInProcess;
             _orderHRepo.Save();
-            TempData[WC.Success] = "Order is in Process";
+            TempData[WC.Success] = "Замовлення в процесі обробки";
             return RedirectToAction(nameof(Index));
         }
 
@@ -92,7 +92,7 @@ namespace Rocky.Controllers
             orderHeader.OrderStatus = WC.StatusShipped;
             orderHeader.ShippingDate = DateTime.Now;
             _orderHRepo.Save();
-            TempData[WC.Success] = "Order Shipped Successfully";
+            TempData[WC.Success] = "Замовлення успішно відправлено";
             return RedirectToAction(nameof(Index));
         }
 
@@ -118,7 +118,7 @@ namespace Rocky.Controllers
 
             orderHeader.OrderStatus = WC.StatusRefunded;
             _orderHRepo.Save();
-            TempData[WC.Success] = "Order Cancelled Successfully";
+            TempData[WC.Success] = "Замовлення успішно скасовано";
             return RedirectToAction(nameof(Index));
         }
 
@@ -136,7 +136,7 @@ namespace Rocky.Controllers
             orderHeaderFromDb.PostalCode = OrderVM.OrderHeader.PostalCode;
 
             _orderHRepo.Save();
-            TempData[WC.Success] = "Order Details Updated Successfully";
+            TempData[WC.Success] = "Деталі замовлення успішно оновлено";
             return RedirectToAction("Details", "Order", new { id = orderHeaderFromDb.Id});
         }
     }

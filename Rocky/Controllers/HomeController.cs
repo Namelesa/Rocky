@@ -78,7 +78,7 @@ namespace Rocky.Controllers
 
             shoppingCartList.Add(new ShoppingCart { ProductId = id, SqFt =  detailsVM.Product.TempSqft});
             HttpContext.Session.Set(WC.SessionCart, shoppingCartList);
-            TempData[WC.Success] = "Item add to cart successfully";
+            TempData[WC.Success] = "Товар успішно додано до кошика";
 
             return RedirectToAction(nameof(Index));
         }

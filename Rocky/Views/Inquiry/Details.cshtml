@@ -7,10 +7,10 @@
         <div class="card">
             <div class="card-header bg-dark text-light ml-0 row container">
                 <div class="col-12 d-none d-md-block col-md-6 pb-1">
-                    <i class="fas fa-shopping-cart"></i> &nbsp; Order Summary
+                    <i class="fas fa-shopping-cart"></i> &nbsp; Підсумки замовлення
                 </div>
                 <div class="col-12 col-md-4 offset-md-2 text-right">
-                    <a asp-action="Index" class="btn btn-outline-info form-control btn-sm">Back to Inquiry</a>
+                    <a asp-action="Index" class="btn btn-outline-info form-control btn-sm">Повернутися до запитів</a>
                 </div>
             </div>
             <div class="card-body pb-0">
@@ -19,18 +19,18 @@
                         <div class="col-12 col-lg-6 pb-4">
                             <div class="row">
                                 <h4 class="d-flex justify-content-between align-items-center mb-3">
-                                    <span class="text-info">PickUp Details:</span>
+                                    <span class="text-info">Деталі самовивозу:</span>
                                 </h4>
                             </div>
                             <div class="row my-1">
-                                <div class="col-3">Name</div>
+                                <div class="col-3">Ім'я</div>
                                 <div class="col-9">
                                     <input asp-for="InquiryHeader.FullName" type="text" class="form-control" />
                                     <span asp-validation-for="InquiryHeader.FullName" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="row my-1">
-                                <div class="col-3">Phone</div>
+                                <div class="col-3">Номер телефону</div>
                                 <div class="col-9">
                                     <input asp-for="InquiryHeader.PhoneNumber" type="text" class="form-control" />
                                     <span asp-validation-for="InquiryHeader.PhoneNumber" class="text-danger"></span>
@@ -38,14 +38,14 @@
                             </div>
 
                             <div class="row my-1">
-                                <div class="col-3">Email</div>
+                                <div class="col-3">Електронна пошта</div>
                                 <div class="col-9">
                                     <input asp-for="InquiryHeader.Email" type="text" class="form-control" />
                                     <span asp-validation-for="InquiryHeader.Email" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="row my-1">
-                                <div class="col-3">Inquiry Date</div>
+                                <div class="col-3">Дата запиту</div>
                                 <div class="col-9">
                                     <input value="@Model.InquiryHeader.InquiryData.ToShortDateString()" type="text" class="form-control" readonly />
                                 </div>
@@ -55,11 +55,11 @@
                                 <div class="col-9 offset-3">
                                     <div class="row">
                                         <div class="col">
-                                            <input type="submit" value="Convert To Cart" class="btn btn-info form-control" />
+                                            <input type="submit" value="Додати в кошик" class="btn btn-info form-control" />
                                         </div>
 
                                         <div class="col">
-                                            <input type="submit" value="Delete" class="btn btn-danger form-control"
+                                            <input type="submit" value="Видалити з кошика" class="btn btn-danger form-control"
                                                    formaction="/Inquiry/Delete" formmethod="post" />
                                         </div>
                                     </div>
@@ -68,7 +68,7 @@
                         </div>
                         <div class="col-12 col-lg-5 offset-lg-1">
                             <h4 class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="text-info">Order Summary</span>
+                                <span class="text-info">Підсумок замовлення</span>
                             </h4>
                             <ul class="list-group mb-3">
                                 @foreach (var prod in Model.InquiryDetail)

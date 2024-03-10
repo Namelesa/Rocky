@@ -1,13 +1,13 @@
 ﻿@page
 @model LoginModel
 <div id="logreg-forms">
-    <h1 class="h3 mb-3 font-weight-normal text-info pt-4" style="text-align:center;">Sign In</h1>
+    <h1 class="h3 mb-3 font-weight-normal text-info pt-4" style="text-align:center;">Вхід до запису</h1>
     @if ((Model.ExternalLogins?.Count ?? 0) == 0)
     {
         <div>
             <p>
-                There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
-                for details on setting up this ASP.NET application to support logging in via external services.
+                Зовнішні служби автентифікації не налаштовано. Див. <a href="https://go.microsoft.com/fwlink/?LinkID=532715">цю статтю</a>
+                для отримання детальної інформації про налаштування цього додатка ASP.NET для підтримки входу через зовнішні сервіси.
             </p>
         </div>
     }
@@ -21,13 +21,13 @@
                     {
                         <button type="submit" class="btn btn-block facebook-btn form-control"
                                 name="provider" value="@provider.Name"
-                                title="Log in using your @provider.DisplayName account" style="background-color: #4267B2; color: white;">
+                                title="Увійдіть з використанням вашого @provider.DisplayName акаунта" style="background-color: #4267B2; color: white;">
                             <i class="fab fa-facebook-square"></i> @provider.DisplayName
                         </button>
                     }
                     else
                     {
-                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Увійдіть з використанням вашого @provider.DisplayName акаунта">@provider.DisplayName</button>
                     }
                 }
             </div>
@@ -38,16 +38,16 @@
     <form id="account" method="post">
         @if (Model.ExternalLogins?.Count > 0)
         {
-            <p style="text-align:center">OR</p>
+            <p style="text-align:center">Або</p>
         }
 
-        <input asp-for="Input.Email" placeholder="Email..." type="email" class="mb-1 form-control" />
-        <input asp-for="Input.Password" placeholder="Password..." type="password" class="form-control" />
-        <button type="submit" class="btn btn-success btn-block"><i class="fas fa-sign-in-alt"></i> Log in</button>
+        <input asp-for="Input.Email" placeholder="Електронна пошта..." type="email" class="mb-1 form-control" />
+        <input asp-for="Input.Password" placeholder="Пароль..." type="password" class="form-control" />
+        <button type="submit" class="btn btn-success btn-block"><i class="fas fa-sign-in-alt"></i> Увійти</button>
 
-        <a id="forgot-password" asp-page="./ForgotPassword" class="pb-2 text-info">Forgot your password?</a>
+        <a id="forgot-password" asp-page="./ForgotPassword" class="pb-2 text-info">Забули пароль?</a>
         <div asp-validation-summary="All" class="text-danger"></div>
-        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="btn btn-info text-white">Register as a new user</a>
+        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="btn btn-info text-white">Зареєструватися як новий користувач</a>
 
 
     </form>

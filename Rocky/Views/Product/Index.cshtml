@@ -3,11 +3,11 @@
 <div class="container p-3 bg-white">
     <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-primary">Product List</h2>
+            <h2 class="text-primary">Список товарів</h2>
         </div>
         <div class="col-6 text-right">
             <a asp-action="Upsert" class="btn btn-primary">
-                <i class="fas fa-plus"></i> &nbsp; Create New Product
+                <i class="fas fa-plus"></i> &nbsp; Створити новий продукт
             </a>
         </div>
     </div>
@@ -21,10 +21,10 @@
         <table class="table table-bordered table-striped" style="width:100%">
             <thead>
                 <tr>
-                    <th>Product Name</th>
-                    <th>Price</th>
-                    <th>Category</th>
-                    <th>Application Type</th>
+                    <th>Назва продукту</th>
+                    <th>Ціна</th>
+                    <th>Категорія</th>
+                    <th>Тип використання</th>
                 </tr>
             </thead>
 
@@ -54,7 +54,7 @@
     }
     else
     {
-        <p>No producte exists</p>
+        <p>Не існує продуктів :(</p>
     }
 
 

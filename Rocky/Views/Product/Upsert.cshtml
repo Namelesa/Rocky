@@ -2,13 +2,13 @@
 @using Rocky_Utility
 
 @{
-    var title = "Create Product";
+    var title = "Створення товару";
 }
 
 <form method="post" enctype="multipart/form-data">
     @if (Model.Product.Id != 0)
     {
-        title = "Edit Product";
+        title = "Редагування товару";
         <input asp-for="Product.Id" hidden />
     }
     <div class="border p-3 bg-white">
@@ -19,7 +19,7 @@
             <div class="col-8">
                 <div class="form-group row py-2">
                     <div class="col-4">
-                        <label asp-for="Product.Name"></label>
+                        <label asp-for="Product.Name">Назва товару</label>
                     </div>
                     <div class="col-8">
                         <input asp-for="Product.Name" class="form-control" />
@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group row py-2">
                     <div class="col-4">
-                        <label asp-for="Product.Price"></label>
+                        <label asp-for="Product.Price">Ціна товару</label>
                     </div>
                     <div class="col-8">
                         <input asp-for="Product.Price" class="form-control" />
@@ -39,7 +39,7 @@
                 </div>
                 <div class="form-group row py-2">
                     <div class="col-4">
-                        <label asp-for="Product.ShortDesc"></label>
+                        <label asp-for="Product.ShortDesc">Короткий опис товару</label>
                     </div>
                     <div class="col-8">
                         <input asp-for="Product.ShortDesc" class="form-control" />
@@ -49,7 +49,7 @@
                 </div>
                 <div class="form-group row py-2">
                     <div class="col-4">
-                        <label asp-for="Product.Description"></label>
+                        <label asp-for="Product.Description">Повний опис товару</label>
                     </div>
                     <div class="col-8">
                         <textarea asp-for="Product.Description" class="form-control summernote"></textarea>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="form-group row py-2">
                     <div class="col-4">
-                        Image
+                        Зображення
                     </div>
                     <div class="col-8">
                         <input type="file" name="files" id="uploadBox" multiple class="form-control" />
@@ -68,11 +68,11 @@
                 </div>
                 <div class="form-group row py-2">
                     <div class="col-4">
-                        <label asp-for="Product.CategoryId"></label>
+                        <label asp-for="Product.CategoryId">Категорія</label>
                     </div>
                     <div class="col-8">
                         <select asp-for="Product.CategoryId" asp-items="@Model.CategorySelectList" class="form-select">
-                            <option disabled selected>--Select Category--</option>
+                            <option disabled selected>--Оберіть категорію--</option>
                         </select>
                         <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
                     </div>
@@ -81,11 +81,11 @@
 
                 <div class="form-group row py-2">
                     <div class="col-4">
-                        <label asp-for="Product.ApplicationTypeId"></label>
+                        <label asp-for="Product.ApplicationTypeId">Тип використання товару</label>
                     </div>
                     <div class="col-8">
                         <select asp-for="Product.ApplicationTypeId" asp-items="@Model.AppicationTypeSelectList" class="form-select">
-                            <option disabled selected>--Select Application Type--</option>
+                            <option disabled selected>--Оберіть тип використання товару--</option>
                         </select>
                         <span asp-validation-for="Product.ApplicationTypeId" class="text-danger"></span>
                     </div>
@@ -99,17 +99,17 @@
                             @if (Model.Product.Id != 0)
                             {
                                 //update
-                                <input type="submit" class="btn btn-info w-100" value="Update" />
+                                <input type="submit" class="btn btn-info w-100" value="Оновити" />
                             }
                             else
                             {
                                 //create
-                                <input type="submit" onclick="return validateInput()" class="btn btn-primary w-100" value="Create" />
+                                <input type="submit" onclick="return validateInput()" class="btn btn-primary w-100" value="Створити" />
                             }
 
                         </div>
                         <div class="col">
-                            <a asp-action="Index" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i>Back</a>
+                            <a asp-action="Index" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i>Назад</a>
                         </div>
                     </div>
                 </div>
@@ -138,9 +138,9 @@
             function validateInput() {
                 if (document.getElementById("uploadBox").value == "") {
                     Swal.fire(
-                        'Error!',
-                        'Please upload an Image!',
-                        'error'
+                        'Помилка!',
+                        'Завантажте будь-ласка зображення!',
+                        'помилка'
                     )
                     return false;
                 }

@@ -3,11 +3,11 @@
 <div class="container p-3 bg-white">
     <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-primary">Category List</h2>
+            <h2 class="text-primary">Список категорій</h2>
         </div>
         <div class="col-6 text-right">
             <a asp-controller="Category" asp-action="Create" class="btn btn-primary">
-               <i class="fas fa-plus"></i> &nbsp; Create New Category
+               <i class="fas fa-plus"></i> &nbsp; Створити нову категорію
             </a>
         </div>
     </div>
@@ -21,8 +21,8 @@
         <table class="table table-bordered table-striped" style="width:100%">
             <thead>
                 <tr>
-                    <th>Category Name</th>
-                    <th>Display Order</th>
+                    <th>Назва категорії</th>
+                    <th>Id</th>
                 </tr>
             </thead>
 
@@ -50,7 +50,7 @@
     }
     else
     {
-        <p>No Category exists</p>
+        <p>Категорій не існує :( </p>
     }
 
 

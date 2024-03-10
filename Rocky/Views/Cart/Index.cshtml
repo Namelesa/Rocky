@@ -12,11 +12,11 @@
                         <div class="card-header bg-dark text-light ml-0 row container">
                             <div class="col-6">
                                 <i class="fa fa-shopping-cart"></i> &nbsp;
-                                Shopping Cart
+                                Кошик для покупок
                             </div>
                             <div class="col-6 text-right">
-                                <a asp-action="Clear" class="btn btn-outline-warning btn-sm">Clear Cart</a>
-                                <a asp-action="Index" asp-controller="Home" class="btn btn-outline-info btn-sm">Continue Shopping</a>
+                                <a asp-action="Clear" class="btn btn-outline-warning btn-sm">Очистити кошик</a>
+                                <a asp-action="Index" asp-controller="Home" class="btn btn-outline-info btn-sm">Продовжити шопінг</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -24,30 +24,17 @@
                                 <div class="row" style="color:#821f3d">
                                     <div class="col-lg-2">
                                     </div>
-                                    @if (User.IsInRole(WC.AdminRole))
-                                    {
-                                        <div class="col-12 col-lg-3">
-                                            Product Details
-                                        </div>
-                                    }
-                                    else
-                                    {
-                                        <div class="col-12 col-lg-7">
-                                            Product Details
-                                        </div>
-                                    }
-                                    <div class="col-12 col-lg-2">
-                                        Price per sqft
-                                    </div>
-                                    @if (User.IsInRole(WC.AdminRole))
-                                    {
+
                                         <div class="col-6 col-lg-2">
-                                            Sqft
+                                            Деталі товару
+                                        </div>
+
+                                        <div class="col-auto col-lg-7">
+                                            Ціна
                                         </div>
                                         <div class="col-6 col-lg-2">
-                                            Total Price
+                                            Фото
                                         </div>
-                                    }
                                     <div class="col-6 col-sm-4 col-lg-1">
                                     </div>
                                 </div>
@@ -82,12 +69,11 @@
                             }
 
                             <div class="col-3 col-lg-2 pt-lg-4" style="font-size:11px;">
-                                <span style="font-size:17px;">@((Model[i].Price).ToString("c"))</span>/ sqft
+                                <span style="font-size:17px;">@((Model[i].Price).ToString("c"))</span>за м.кв.
 
                             </div>
 
-                            @if (User.IsInRole(WC.AdminRole))
-                            {
+                            
                                 <div class="col-4 col-lg-2 pt-lg-4" style="font-size:11px;">
                                     <input type="text" asp-for="@Model[i].TempSqft" class="form-control" />
                                     <span asp-validation-for="@Model[i].TempSqft" class="text-danger"></span>
@@ -95,7 +81,7 @@
                                 <div class="col-3 col-lg-2 pt-lg-4" style="font-size:11px;">
                                     <span style="font-size:17px;">@((Model[i].Price * Model[i].TempSqft).ToString("c"))</span>
                                 </div>
-                            }
+                            
                             <div class="col-2 col-lg-1 p-0 pt-lg-4 text-center">
                                 <a asp-action="Remove" asp-route-id="@Model[i].Id" class="btn btn-outline-danger">
                                     <i class="fas fa-trash"></i>
@@ -106,14 +92,13 @@
                                 <hr />
                             }
 
-                            @if (User.IsInRole(WC.AdminRole))
-                            {
+                            
                                 <div class="row">
                                     <div class="col-12 text-right pr-4" style="color:#821f3d">
-                                        Ordert Total : @string.Format("{0:c}", orderTotal)
+                                        Загальна вартість : @string.Format("{0:c}", orderTotal)
                                     </div>
                                 </div>
-                            }
+                            
 
 
                         </div>
@@ -122,13 +107,13 @@
                                 <div class="col-6 col-md-3 offset-md-6">
                                     @if(User.IsInRole(WC.AdminRole))
                                     {
-                                        <input type="submit" asp-action="UpdateCart" formmethod="post" name="Update" value="UpdateCart"
+                                        <input type="submit" asp-action="UpdateCart" formmethod="post" name="Update" value="Оновики кошик"
                                                class="btn btn-info form-control"/>
                                     }
                                     </div>
                                     <div class="col-6 col-md-3">
                                         <button type="submit" class="btn btn-success form-control ">
-                                            <span>Continue</span>
+                                            <span>Продовжити</span>
                                         </button>
                                     </div>
                                 </div>
@@ -141,7 +126,7 @@
 }
 else 
 {
-    <p class="text-center">Please add items to cart :(</p>
+    <p class="text-center">Будь-ласка додайте товари до кошика :(</p>
 }
 
 @section Scripts{ 

@@ -38,30 +38,30 @@
                     <ul class="navbar-nav flex-grow-1">
 
                         <li>
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Дім</a>
                         </li>
                         @if (User.IsInRole(WC.AdminRole))
                         {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Content Management
+                                    Менеджемнт
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="Index">Category</a>
-                                    <a class="dropdown-item" asp-area="" asp-controller="ApplicationType" asp-action="Index">ApplicationType</a>
-                                    <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="Index">Product</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="Index">Категорії</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="ApplicationType" asp-action="Index">Призначення</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="Index">Продукти</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Create Admin User</a>
+                                    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Створити нового адміна</a>
                                 </div>
                             </li>
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Orders/Inquiry Management
+                                    Управління замовленнями/запитами
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" asp-area="" asp-controller="Inquiry" asp-action="Index">Inquiry</a>
-                                    <a class="dropdown-item" asp-area="" asp-controller="Order" asp-action="Index">Order</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Inquiry" asp-action="Index">Запити</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Order" asp-action="Index">Замовлення</a>
                                 </div>
                             </li>
                         }
@@ -105,7 +105,7 @@
             <a href="https://www.instagram.com/_2i_i7_/" target="_blank" style="display: inline-block; position: absolute; right: 0; top: 0;">
                 <img src="https://icon-library.com/images/instagram-icon-png-white/instagram-icon-png-white-1.jpg" alt="Instagram" style="max-width: 45px; height: auto;" />
             </a>
-            <a href="https://t.me/pixophone" target="_blank" style="display: inline-block; position: absolute; right: 50px; top: 0;">
+            <a href="https://t.me/IIIqwertyII" target="_blank" style="display: inline-block; position: absolute; right: 50px; top: 0;">
                 <img src="https://cdn-icons-png.flaticon.com/256/226/226253.png" alt="Telegram" style="max-width: 23px; height: auto;" />
             </a>
         </div>
