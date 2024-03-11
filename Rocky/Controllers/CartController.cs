@@ -296,7 +296,7 @@ namespace Rocky.Controllers
 
                 }
                 _inqDRepo.Save();
-                TempData[WC.Success] = "Запит успішно відправлено";
+                TempData[WC.Success] = "Inquiry submitted successfully";
             }
 
 
